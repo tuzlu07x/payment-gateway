@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
-import { development } from "../config/config.js";
+import { config } from "../config/config.js";
 
-const sequelize = new Sequelize(development);
+const sequelize = new Sequelize(config.development);
 
 export default sequelize;

@@ -17,7 +17,11 @@ class Transaction extends Model {
 
 Transaction.init(
   {
-    sender_wallet_id: DataTypes.INTEGER,
+    userId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     receiver_wallet_id: DataTypes.INTEGER,
     amount: DataTypes.DECIMAL,
   },

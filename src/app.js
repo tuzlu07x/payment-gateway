@@ -1,11 +1,9 @@
 import express from "express";
-import { Sequelize } from "sequelize";
-import { development } from "../config/config.js";
+import sequelize from "./sequelize.js";
 import bodyParser from "body-parser";
 import { TransactionClass } from "./Payment/TransactionClass.js";
 const app = express();
 
-const sequelize = new Sequelize(development);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
