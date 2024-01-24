@@ -1,4 +1,5 @@
 "use strict";
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -9,14 +10,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      sender_wallet_id: {
+      userId: {
         type: Sequelize.INTEGER,
-      },
-      receiver_wallet_id: {
-        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
       amount: {
+        allowNull: false,
         type: Sequelize.DECIMAL,
+      },
+      type: {
+        allowNull: false,
+        type: Sequelize.ENUM(["DEPOSIT", "WITHDRAW"]),
       },
       createdAt: {
         allowNull: false,
