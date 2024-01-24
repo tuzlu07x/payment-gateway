@@ -1,25 +1,38 @@
-require("dotenv").config();
+import dotenv from "dotenv";
 
-module.exports = {
-  development: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: "localhost",
-    dialect: "mysql",
-  },
-  test: {
-    username: "root",
-    password: null,
-    database: "database_test",
-    host: "127.0.0.1",
-    dialect: "mysql",
-  },
-  production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
-    dialect: "mysql",
-  },
+dotenv.config();
+
+const development = {
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: "localhost",
+  dialect: "mysql",
 };
+
+const test = {
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: "localhost",
+  dialect: "mysql",
+};
+
+const production = {
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: "localhost",
+  dialect: "mysql",
+};
+
+const rabbitMqConfig = {
+  protocol: "amqp",
+  hostname: "localhost",
+  port: 5672,
+  username: "guest",
+  password: "guest",
+  vhost: "/",
+};
+
+export { development, test, production, rabbitMqConfig };
