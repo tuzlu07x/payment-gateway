@@ -39,7 +39,6 @@ export default class RabbitMQ {
           await callback(parsedData);
           await this.acknowledge();
         }
-        console.log(`Email went successfully ${msg}`);
       } catch (error) {
         console.error("Error processing message:", error.message);
         channel.nack(msg, false, false);

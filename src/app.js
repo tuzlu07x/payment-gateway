@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  const transaction = new TransactionClass(5, 5, 5);
+  const transaction = new TransactionClass(1, 50, "WITHDRAW");
   transaction.createTransactionQueue();
   res.send("sea");
 });

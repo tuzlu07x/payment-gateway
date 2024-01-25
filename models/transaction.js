@@ -3,27 +3,23 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from "../src/sequelize.js";
 class Transaction extends Model {
   static associate(models) {
-    Transaction.belongsTo(models.Deposit, {
-      foreignKey: "sender_wallet_id",
-      as: "owner",
-    });
-
-    Transaction.belongsTo(models.Withdraw, {
-      foreignKey: "receiver_wallet_id",
-      as: "owner",
-    });
+    Transaction.belongsTo(models.User, { foreignKey: "userId", as: "owner" });
   }
 }
 
 Transaction.init(
   {
     userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    receiver_wallet_id: DataTypes.INTEGER,
     amount: DataTypes.DECIMAL,
+    type: {
+      type: DataTypes.ENUM,
+      values: ["DEPOSIT", "WITHDRAW"],
+    },
   },
   {
     sequelize,

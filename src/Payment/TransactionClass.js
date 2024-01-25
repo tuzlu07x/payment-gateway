@@ -2,10 +2,10 @@ import RabbitMQ from "../../Queue/RabbitMQ.js";
 import transactionValidate from "../../validations/transactionValidation.js";
 
 export class TransactionClass {
-  constructor(amount, sender_wallet_id = null, receiver_wallet_id = null) {
+  constructor(userId, amount, type) {
+    this.userId = userId;
     this.amount = amount;
-    this.sender_wallet_id = sender_wallet_id;
-    this.receiver_wallet_id = receiver_wallet_id;
+    this.type = type;
   }
 
   customVal() {
