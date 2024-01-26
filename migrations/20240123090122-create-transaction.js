@@ -25,6 +25,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.ENUM(["DEPOSIT", "WITHDRAW"]),
       },
+      isRead: {
+        allowNull: true,
+        type: Sequelize.BOOLEAN,
+        default: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

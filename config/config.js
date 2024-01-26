@@ -30,3 +30,13 @@ export const rabbitMqConfig = {
   password: "guest",
   vhost: "/",
 };
+
+// module.exports = {
+//   development: {
+//     username: "root",
+//     password: "Fatih1234",
+//     database: "transaction",
+//     host: "127.0.0.1",
+//     dialect: "mysql",
+//   },
+// };

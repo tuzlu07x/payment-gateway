@@ -1,29 +1,23 @@
 "use strict";
-const { Model } = require("sequelize");
-module.exports = (sequelize, DataTypes) => {
-  class Wallet extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      Wallet.belongsTo(models.User, { foreignKey: "userId", as: "owner" });
-    }
+import { Model, DataTypes } from "sequelize";
+import sequelize from "../src/sequelize.js";
+class Wallet extends Model {
+  static associate(models) {
+    Wallet.belongsTo(models.User, { foreignKey: "userId", as: "owner" });
   }
-  Wallet.init(
-    {
-      userId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      balance: DataTypes.DECIMAL,
+}
+Wallet.init(
+  {
+    userId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-      sequelize,
-      modelName: "Wallet",
-    }
-  );
-  return Wallet;
-};
+    balance: DataTypes.DECIMAL,
+  },
+  {
+    sequelize,
+    modelName: "Wallet",
+  }
+);
+export default Wallet;

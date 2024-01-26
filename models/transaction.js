@@ -20,6 +20,7 @@ Transaction.init(
       type: DataTypes.ENUM,
       values: ["DEPOSIT", "WITHDRAW"],
     },
+    isRead: DataTypes.BOOLEAN,
   },
   {
     sequelize,
